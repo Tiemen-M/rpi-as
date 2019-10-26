@@ -1,0 +1,11 @@
+geleerde gdb commandos:
+quit
+start
+p $<reg>
+p $<REG> = <waarde>
+stepi
+info registers <reg>,<reg>,...
+info register <reg>
+p &<symbol>
+p <symbol>
+
