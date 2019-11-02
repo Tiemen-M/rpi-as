@@ -1,5 +1,5 @@
 # makefile
-all: first sum01 sum02 load01 store01
+all: first sum01 sum02 load01 store01 branch01 compare01
 
 first: first.o
 	gcc -o $@ $+
@@ -32,6 +32,18 @@ store01: store01.o
 store01.o: store01.s
 	as -o $@ $<
 
+branch01: branch01.o
+	gcc -o $@ $+
+
+branch01.o: branch01.s
+	as -o $@ $<
+
+compare01: compare01.o
+	gcc -o $@ $+
+
+compare01.o: compare01.s
+	as -o $@ $<
+
 clean:
-	rm -vf first sum01 sum02 load01 store01  *.o
+	rm -vf first sum01 sum02 load01 store01 branch01 compare01  *.o
 
