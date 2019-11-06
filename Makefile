@@ -1,5 +1,5 @@
 # makefile
-all: first sum01 sum02 sum03 sum04 load01 store01 branch01 compare01 loop01 loop02 collatz
+all: first sum01 sum02 sum03 sum04 load01 load02 store01 store02 store03 branch01 compare01 loop01 loop02 collatz
 
 first: first.o
 	gcc -o $@ $+
@@ -37,10 +37,28 @@ load01: load01.o
 load01.o: load01.s
 	as -o $@ $<
 
+load02: load02.o
+	ld -o $@ $+
+
+load02.o: load02.s
+	as -o $@ $<
+
 store01: store01.o
 	gcc -o $@ $+
 
 store01.o: store01.s
+	as -o $@ $<
+
+store02: store02.o
+	ld -o $@ $+
+
+store02.o: store02.s
+	as -o $@ $<
+
+store03: store03.o
+	ld -o $@ $+
+
+store03.o: store03.s
 	as -o $@ $<
 
 branch01: branch01.o
@@ -75,5 +93,5 @@ collatz.o: collatz.s
 
 
 clean:
-	rm -vf first sum01 sum02 sum03 sum04 load01 store01 branch01 compare01 loop01 loop02 collatz *.o
+	rm -vf first sum01 sum02 sum03 sum04 load01 load02 store01 store02 store03 branch01 compare01 loop01 loop02 collatz *.o
 
