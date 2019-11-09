@@ -1,118 +1,22 @@
 # makefile
-progs:=first sum01 sum02 sum03 sum04 load01 load02 store01 
-progs+=store02 store03 store04 branch01 branch02 branch03 compare01 loop01 loop02 collatz
+progs_gcc:=first sum01 sum02 sum03 load01 store01 
+progs_gcc+=branch01 branch02 compare01 loop01 loop02 collatz
+progs_ld:=sum04 load02 store02 store03 store04 branch03
 
-all: $(progs) 
+all: $(progs_gcc) $(progs_ld)
 
-first: first.o
+.SECONDEXPANSION:
+$(progs_gcc): $$@.o
 	gcc -o $@ $+
 
-first.o: first.s
-	as -o $@ #<
-
-sum01: sum01.o
-	gcc -o $@ $+
-
-sum01.o: sum01.s
-	as -o $@ #<
-
-sum02: sum02.o
-	gcc -o $@ $+
-
-sum02.o: sum02.s
-	as -o $@ #<
-
-sum03: sum03.o
-	gcc -o $@ $+
-
-sum03.o: sum03.s
-	as -o $@ $<
-
-sum04: sum04.o
+.SECONDEXPANSION:
+$(progs_ld): $$@.o
 	ld -o $@ $+
 
-sum04.o: sum04.s
-	as -o $@ $<
-
-load01: load01.o
-	gcc -o $@ $+
-
-load01.o: load01.s
-	as -o $@ $<
-
-load02: load02.o
-	ld -o $@ $+
-
-load02.o: load02.s
-	as -o $@ $<
-
-store01: store01.o
-	gcc -o $@ $+
-
-store01.o: store01.s
-	as -o $@ $<
-
-store02: store02.o
-	ld -o $@ $+
-
-store02.o: store02.s
-	as -o $@ $<
-
-store03: store03.o
-	ld -o $@ $+
-
-store03.o: store03.s
-	as -o $@ $<
-
-store04: store04.o
-	ld -o $@ $+
-
-store04.o: store04.s
-	as -o $@ $<
-
-branch01: branch01.o
-	gcc -o $@ $+
-
-branch01.o: branch01.s
-	as -o $@ $<
-
-branch02: branch02.o
-	gcc -o $@ $+
-
-branch02.o: branch02.s
-	as -o $@ $<
-
-branch03: branch03.o
-	ld -o $@ $+
-
-branch03.o: branch03.s
-	as -o $@ $<
-
-compare01: compare01.o
-	gcc -o $@ $+
-
-compare01.o: compare01.s
-	as -o $@ $<
-
-loop01: loop01.o
-	gcc -o $@ $+
-
-loop01.o: loop01.s
-	as -o $@ $<
-
-loop02: loop02.o
-	gcc -o $@ $+
-
-loop02.o: loop02.s
-	as -o $@ $<
-
-collatz: collatz.o
-	gcc -o $@ $+
-
-collatz.o: collatz.s
-	as -o $@ $<
+%.o: %.s
+	as -o $@ $^
 
 .PHONY: clean
 clean:
-	rm -vf $(progs) *.o
+	rm -vf $(progs_gcc) $(progs_ld) *.o
 
