@@ -1,11 +1,13 @@
 geleerde gdb commandos:
 quit
 start
-p $<reg>
-p $<REG> = <waarde>
-stepi
-info registers <reg>,<reg>,...
+p $<reg>			- print een register
+p $<REG> = <waarde>		
+stepi				- ga een instructie verder
+info registers <reg>,<reg>,...	- print registers
 info register <reg>
+i reg
 p &<symbol>
 p <symbol>
+x/<count><display format><unit size>
 
