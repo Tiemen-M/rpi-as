@@ -1,7 +1,7 @@
 # makefile
 progs_gcc:=first sum01 sum02 sum03 load01 store01 
 progs_gcc+=branch01 branch02 compare01 loop01 loop02 collatz
-progs_gcc+=hello01
+progs_gcc+=hello01 printf01
 progs_ld:=sum04 load02 store02 store03 store04 branch03 addrmodes01 addrmodes02 addrmodes03
 progs_ld+=eigen01
 
