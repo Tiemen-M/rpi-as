@@ -4,7 +4,7 @@ progs_gcc+=branch01 branch02 compare01 loop01 loop02 collatz
 progs_gcc+=hello01 printf01 printf02 numericalLabels bsearch
 progs_gcc+=rfac predict_collatz
 progs_ld:=sum04 load02 store02 store03 store04 branch03 addrmodes01 addrmodes02 addrmodes03
-progs_ld+=eigen01
+progs_ld+=eigen01 syscall
 
 all: $(progs_gcc) $(progs_ld)
 
@@ -17,7 +17,7 @@ $(progs_ld): $$@.o
 	ld -o $@ $+
 
 %.o: %.s
-	as -o $@ $^
+	as -g -o $@ $^
 
 .PHONY: clean
 clean:
