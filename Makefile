@@ -6,9 +6,14 @@ progs_gcc+=rfac predict_collatz VFPv2_PI pred_bsearch
 progs_gcc+=buffer_test VFPv2_calc squares
 progs_ld:=sum04 load02 store02 store03 store04 branch03 addrmodes01 addrmodes02 addrmodes03
 progs_ld+=eigen01 syscall
+c_progs:=c_asm ror
 
-all: $(progs_gcc) $(progs_ld)
+all: $(progs_gcc) $(progs_ld) $(c_progs)
 
+.SECONDEXPANSION:
+$(c_progs): $$@.c
+	gcc -g -o $@ $+
+	
 .SECONDEXPANSION:
 $(progs_gcc): $$@.o
 	gcc -o $@ $+
@@ -22,5 +27,5 @@ $(progs_ld): $$@.o
 
 .PHONY: clean
 clean:
-	rm -vf $(progs_gcc) $(progs_ld) *.o
+	rm -vf $(progs_gcc) $(progs_ld) *.o $(c_progs)
 
