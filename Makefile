@@ -5,7 +5,7 @@ progs_gcc+=hello01 printf01 printf02 numericalLabels bsearch
 progs_gcc+=rfac predict_collatz VFPv2_PI pred_bsearch
 progs_gcc+=buffer_test VFPv2_calc squares tumb
 progs_ld:=sum04 load02 store02 store03 store04 branch03 addrmodes01 addrmodes02 addrmodes03
-progs_ld+=eigen01 syscall system gpio write_file
+progs_ld+=eigen01 syscall system gpio write_file blink_led
 c_progs:=c_asm ror flags
 output_files:= write_file.txt
 
