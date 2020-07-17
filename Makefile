@@ -5,8 +5,9 @@ progs_gcc+=hello01 printf01 printf02 numericalLabels bsearch
 progs_gcc+=rfac predict_collatz VFPv2_PI pred_bsearch
 progs_gcc+=buffer_test VFPv2_calc squares tumb
 progs_ld:=sum04 load02 store02 store03 store04 branch03 addrmodes01 addrmodes02 addrmodes03
-progs_ld+=eigen01 syscall
-c_progs:=c_asm ror
+progs_ld+=eigen01 syscall system gpio write_file
+c_progs:=c_asm ror flags
+output_files:= write_file.txt
 
 all: $(progs_gcc) $(progs_ld) $(c_progs)
 
@@ -27,5 +28,5 @@ $(progs_ld): $$@.o
 
 .PHONY: clean
 clean:
-	rm -vf $(progs_gcc) $(progs_ld) *.o $(c_progs)
+	rm -vf $(progs_gcc) $(progs_ld) *.o $(c_progs) $(output_files)
 

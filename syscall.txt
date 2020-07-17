@@ -1,0 +1,5 @@
+/usr/include/arm-linux-gnueabihf/bits/fcntl-linux.h
+/usr/include/arm-linux-gnueabihf/asm/unistd.h
+
+handige commando's
+strace - volgt de syscals van een programa

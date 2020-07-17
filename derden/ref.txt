@@ -1,0 +1,2 @@
+mmap.s - demostreert het gebruik van mmap
+src: https://gist.github.com/syuu1228/8189292
