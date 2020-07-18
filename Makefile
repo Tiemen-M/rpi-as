@@ -9,7 +9,7 @@ progs_ld+=eigen01 syscall system gpio write_file blink_led
 c_progs:=c_asm ror flags
 output_files:= write_file.txt
 own_lib:= map gpio_lib
-own_lib_progs:=test_lib
+own_lib_progs:=test_lib loopLicht
 
 all: $(progs_gcc) $(progs_ld) $(c_progs)
 
