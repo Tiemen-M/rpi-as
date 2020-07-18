@@ -3,6 +3,7 @@
 .text
 .code 32
 
+.global map
 @@@@@@ map - Geeft toegang tot een bepaald adress in geheugen
 @ input: phy_offset_addr length
 @ output: map_addr
@@ -65,6 +66,7 @@ map:
 	ldmia sp!, {r4-r12, lr}
 	bx lr
 
+.global unmap
 @@@@@ unmap - geeft de gemapte gehuigen vrij
 @ input: map_addr length
 unmap:

@@ -1,5 +1,5 @@
-.include "map.i"
-.include "gpio.i"
+@include "map.i" wordt nu gelinkt dus dit is overbodig
+@include "gpio.i"
 .global _start
 .balign 4
 .code 32
