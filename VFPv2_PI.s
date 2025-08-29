@@ -23,7 +23,7 @@ main:
 	@ print resultaat naar scherm
 	bl print
 
-	ldmia sp!, {r4-r12, 3lr}
+	ldmia sp!, {r4-r12, lr}
 	bx lr
 
 @ print() - print de inoud van D0 register
